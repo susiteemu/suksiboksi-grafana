@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana-oss
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      GF_SERVER_DOMAIN: ${GF_SERVER_DOMAIN}
+      GF_ANALYTICS_REPORTING_ENABLED: 'false'
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage:
+
+networks:
+  default:
+    external:
+      name: ${DOCKER_NETWORK}
