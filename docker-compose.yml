@@ -9,6 +9,12 @@ services:
       - 3000:3000
     environment:
       GF_SERVER_DOMAIN: ${GF_SERVER_DOMAIN}
+      GF_SMTP_ENABLED: ${GF_SMTP_ENABLED}
+      GF_SMTP_HOST: ${GF_SMTP_HOST} 
+      GF_SMTP_USER: ${GF_SMTP_USER}
+      GF_SMTP_PASSWORD: ${GF_SMTP_PASSWORD}
+      GF_SMTP_FROM_ADDRESS: ${GF_SMTP_FROM_ADDRESS}
+      GF_SMTP_FROM_NAME: ${GF_SMTP_FROM_NAME}
       GF_ANALYTICS_REPORTING_ENABLED: 'false'
     volumes:
       - grafana-storage:/var/lib/grafana
