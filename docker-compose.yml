@@ -10,12 +10,15 @@ services:
     environment:
       GF_SERVER_DOMAIN: ${GF_SERVER_DOMAIN}
       GF_SMTP_ENABLED: ${GF_SMTP_ENABLED}
-      GF_SMTP_HOST: ${GF_SMTP_HOST} 
+      GF_SMTP_HOST: ${GF_SMTP_HOST}
       GF_SMTP_USER: ${GF_SMTP_USER}
       GF_SMTP_PASSWORD: ${GF_SMTP_PASSWORD}
       GF_SMTP_FROM_ADDRESS: ${GF_SMTP_FROM_ADDRESS}
       GF_SMTP_FROM_NAME: ${GF_SMTP_FROM_NAME}
       GF_ANALYTICS_REPORTING_ENABLED: 'false'
+      GF_AUTH_ANONYMOUS_ENABLED: 'true'
+      GF_AUTH_ANONYMOUS_ORG_ROLE: 'Viewer'
+      GF_AUTH_ANONYMOUS_HIDE_VERSION: 'true'
     volumes:
       - grafana-storage:/var/lib/grafana
 
@@ -26,3 +29,4 @@ networks:
   default:
     external:
       name: ${DOCKER_NETWORK}
+
